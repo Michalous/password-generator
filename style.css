@@ -118,6 +118,14 @@ button[disabled] {
   overflow: hidden;
 }
 
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

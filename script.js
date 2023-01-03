@@ -88,19 +88,55 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var chooseFromOptions = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var dropdown = document.getElementById('length').value
+  var array = []
+  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  for (var i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].name)
+  }
+  return [array, dropdown]
+}
 
+
+function arrayOfSymbols() {
+  var passwordOptions = getPasswordOptions()
+  if (passwordOptions[0].length == 0) {
+  }
+  else {
+    var passwordString = []
+    for (var i = 0; i < passwordOptions[0].length; i++) {
+      for (var j = 0; j < chooseFromOptions[passwordOptions[0][i]].length; j++) {
+        if (passwordOptions[0][i] == 1) {
+          passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
+          passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
+        }
+        else {
+        passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
+        }
+      }
+    }
+  }
+  return passwordString
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
 // Function to generate password with user input
 function generatePassword() {
-
+  var array = arrayOfSymbols()
+  passwordLength = getPasswordOptions()[1]
+  var result = ""
+  for (var i = 0; i < passwordLength; i++) {
+    result += getRandom(array)
+  }
+  return result
 }
 
 // Get references to the #generate element
