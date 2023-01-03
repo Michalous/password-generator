@@ -157,6 +157,7 @@ generateBtn.addEventListener('click', function() {
     document.getElementById('error').innerHTML = "* Error! You have to tick one of the options"
   }
   else {
+    document.getElementById('error').innerHTML = ""
     writePassword()
   }
 })
