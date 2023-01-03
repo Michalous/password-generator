@@ -151,4 +151,12 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+//generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', function() {
+  if (getPasswordOptions()[0].length == 0) {
+    document.getElementById('error').innerHTML = "* Error! You have to tick one of the options"
+  }
+  else {
+    writePassword()
+  }
+})

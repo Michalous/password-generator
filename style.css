@@ -120,11 +120,30 @@ button[disabled] {
 
 .options {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  /* justify-content: space-between;
+  align-items: center; */
 }
 
+.check_option {
+  width: 50%;
+}
 
+.length {
+  margin-bottom: 20px;
+}
+
+.length input {
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#error {
+  color: red;
+}
 
 @media (max-width: 690px) {
   .btn {
@@ -141,5 +160,17 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .length span {
+    font-size: 10px;
+  }
+
+  .check_option {
+    font-size: 12px;
   }
 }
