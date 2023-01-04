@@ -141,7 +141,7 @@ button[disabled] {
   font-size: 16px;
 }
 
-#error {
+#error, #error2 {
   color: red;
 }
 

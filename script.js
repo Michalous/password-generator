@@ -156,8 +156,12 @@ generateBtn.addEventListener('click', function() {
   if (getPasswordOptions()[0].length == 0) {
     document.getElementById('error').innerHTML = "* Error! You have to tick one of the options"
   }
+  else if (getPasswordOptions()[1] < 10 || getPasswordOptions()[1] > 64) {
+    document.getElementById('error2').innerHTML = "* Error! Has to be between 10 and 64"
+  }
   else {
     document.getElementById('error').innerHTML = ""
+    document.getElementById('error2').innerHTML = ""
     writePassword()
   }
 })
