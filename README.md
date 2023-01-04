@@ -11,3 +11,13 @@ User's inputs are validated (must choose from at least 1 options and the length 
 
 Website is responsive and you can check it here:
 https://michalous.github.io/password-generator/
+
+
+There's a non zero probability that my method will lead to a password which doesn't have at least one character from each selected group. The graph below is for a situation where all 4 options are selected (If less than 4 options are selected then the probability is smaller).
+
+![password generator failure](./assets/Screenshot-2.png)
+
+Or you can have a look here:
+https://michalous.github.io/password-failure
+
+Since the challenge doesn't specify whether this is an issue or not (randomly not picking a character from a selected group) I'm leaving it as it is. But I'm standing by for any corrections in the code. 
