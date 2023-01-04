@@ -88,6 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// array of possible options for a future reference
 var chooseFromOptions = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
 
 // Function to prompt user for password options
@@ -101,7 +102,7 @@ function getPasswordOptions() {
   return [array, dropdown]
 }
 
-
+// Helper function that returns an array of all possible characters depending on users input
 function arrayOfSymbols() {
   var passwordOptions = getPasswordOptions()
   if (passwordOptions[0].length == 0) {
@@ -111,6 +112,8 @@ function arrayOfSymbols() {
     for (var i = 0; i < passwordOptions[0].length; i++) {
       for (var j = 0; j < chooseFromOptions[passwordOptions[0][i]].length; j++) {
         if (passwordOptions[0][i] == 1) {
+          // if numeric is chosen it is added to passwordString array twice
+          // - so there's a similar probability of being chosen as other ones (10 numeric vs 20+ other ones)
           passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
           passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
         }
@@ -151,14 +154,16 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-//generateBtn.addEventListener('click', writePassword);
 generateBtn.addEventListener('click', function() {
+  // First checks if at least one option was chosen
   if (getPasswordOptions()[0].length == 0) {
     document.getElementById('error').innerHTML = "* Error! You have to tick one of the options"
   }
+  // Second checks if the length selected is between 10 and 64 inclusive
   else if (getPasswordOptions()[1] < 10 || getPasswordOptions()[1] > 64) {
     document.getElementById('error2').innerHTML = "* Error! Has to be between 10 and 64"
   }
+  // if both above are correct then clears all error messages and writes password
   else {
     document.getElementById('error').innerHTML = ""
     document.getElementById('error2').innerHTML = ""
