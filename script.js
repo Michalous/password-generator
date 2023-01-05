@@ -105,24 +105,21 @@ function getPasswordOptions() {
 // Helper function that returns an array of all possible characters depending on users input
 function arrayOfSymbols() {
   var passwordOptions = getPasswordOptions()
-  if (passwordOptions[0].length == 0) {
-  }
-  else {
-    var passwordString = []
-    for (var i = 0; i < passwordOptions[0].length; i++) {
-      for (var j = 0; j < chooseFromOptions[passwordOptions[0][i]].length; j++) {
-        if (passwordOptions[0][i] == 1) {
-          // if numeric is chosen it is added to passwordString array twice
-          // - so there's a similar probability of being chosen as other ones (10 numeric vs 20+ other ones)
-          passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
-          passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
-        }
-        else {
+  var passwordString = []
+  for (var i = 0; i < passwordOptions[0].length; i++) {
+    for (var j = 0; j < chooseFromOptions[passwordOptions[0][i]].length; j++) {
+      if (passwordOptions[0][i] == 1) {
+        // if numeric is chosen it is added to passwordString array twice
+        // - so there's a similar probability of being chosen as other ones (10 numeric vs 20+ other ones)
         passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
-        }
+        passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
+      }
+      else {
+        passwordString.push(chooseFromOptions[passwordOptions[0][i]][j])
       }
     }
   }
+  
   return passwordString
 }
 
